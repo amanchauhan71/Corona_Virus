@@ -1,0 +1,39 @@
+header {
+  background-color: #272343;
+
+  margin: auto -16px;
+  padding: 16px 450px;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
+}
+header h1 {
+  color: #fff;
+  font-family: "McLaren", cursive;
+  font-weight: 200;
+  text-align: center;
+}
+.svg_icons {
+  transform: scale(1.8);
+  padding-right: 5px;
+}
+
+.image {
+  width: 370px;
+  margin-top: 50px;
+}
+@media only screen and (max-width: 770px) {
+  /* rules go here */
+  .MAIN_NAV {
+     width: 300px;
+     padding: 16px 150px;
+     
+  }
+}
+@media only screen and (max-width: 770px) {
+  .image {
+    width: 300px;
+    padding-right: 100px;
+  }
+}
+
+
+
