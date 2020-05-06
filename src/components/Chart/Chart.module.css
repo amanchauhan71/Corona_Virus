@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 .container {
 
   display: flex;
@@ -8,19 +8,7 @@
 
 @media only screen and (max-width: 770px) {
   .container {
-    width: 100%;
+    width: 200%;
   }
-=======
-.container {
-
-  display: flex;
-  justify-content: center;
-  width: 70%;
 }
 
-@media only screen and (max-width: 770px) {
-  .container {
-    width: 100%;
-  }
->>>>>>> c4f4d33962bc25c1d0371882b04664ceeca6053e
-}

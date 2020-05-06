@@ -1,7 +1,7 @@
-<<<<<<< HEAD
+
 import React ,{useState,useEffect} from 'react';
 import {fetchDailyData} from '../../api';
-import {Line , Bar} from 'react-chartjs-2';
+import {Line , Bar , Pie} from 'react-chartjs-2';
 import styles from './Chart.module.css';
 
 
@@ -58,34 +58,9 @@ const Chart =({ data: { confirmed, recovered, deaths }, country })=>{
     ) : null
   );
 
-
-  return(
-    <div className={styles.container}>
-    {country ? barChart : lineChart}
-  </div>
-  )
-}
-
-=======
-import React ,{useState,useEffect} from 'react';
-import {fetchDailyData} from '../../api';
-import {Line , Bar} from 'react-chartjs-2';
-import styles from './Chart.module.css';
-
-
-const Chart =({ data: { confirmed, recovered, deaths }, country })=>{
-
-  const [dailyData,setDailyData]=useState([]);
-
-  useEffect(()=>{
-    const fetchAPI = async ()=>{
-    setDailyData(await fetchDailyData());
-  }
-  fetchAPI();
-  },[]);
-  const barChart = (
+  const PieChart = (
     confirmed ? (
-      <Bar
+      <Pie className = {styles.piesize}
         data={{
           labels: ['Infected', 'Recovered', 'Deaths'],
           datasets: [
@@ -96,47 +71,18 @@ const Chart =({ data: { confirmed, recovered, deaths }, country })=>{
             },
           ],
         }}
-        options={{
-          legend: { display: false },
-          title: { display: true, text: `Current state in ${country}` },
-        }}
+       height='90%'
       />
     ) : null
   );
-  const lineChart = (
-  dailyData.length
-    ?(
-      <Line
-        data={{
-          labels: dailyData.map(({data})=>data),
-          datasets:[{
-            data:dailyData.map(({confirmed})=>confirmed),
-            label:'Infected',
-            borderColor:'#3333ff',
-            fill :true,
-
-          }
-          
-          ,{
-            data:dailyData.map(({deaths})=>deaths),
-            label:'Deaths',
-            borderColor:'red',
-            backgroundColor:'rgba(255,0,0,0.5)',
-            fill :true,
-          }],
-        }}
-      />) : null
-    
-
-      );
-
+  
 
   return(
     <div className={styles.container}>
-    {country ? barChart : lineChart}
+    {country ? barChart : PieChart}
   </div>
   )
 }
 
->>>>>>> c4f4d33962bc25c1d0371882b04664ceeca6053e
+
 export default Chart;
